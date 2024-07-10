@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const fs = require('fs')
 const {execSync} = require('node:child_process')
+const {differenceInYears} = require('date-fns')
 
 const app = express()
 const port = 3001
@@ -21,8 +22,32 @@ if (!fs.existsSync(jsonFilePath)) {
     }
 }
 
+// Function to calculate age from birthday
+const calculateAge = (birthday) => {
+    const today = new Date()
+    return differenceInYears(today, birthday)
+}
+
 app.get('/data', (req, res) => {
-    res.sendFile(jsonFilePath)
+    // Read the JSON file
+    fs.readFile(jsonFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading JSON file:', err)
+            return res.status(500).send('Internal Server Error')
+        }
+
+        // Parse the JSON data
+        let jsonData = JSON.parse(data)
+
+        // Calculate the age for each record dynamically
+        jsonData = jsonData.map((record) => {
+            record.Age = calculateAge(record.Birthday)
+            return record
+        })
+
+        // Send the updated JSON data
+        res.json(jsonData)
+    })
 })
 
 app.listen(port, () => {
