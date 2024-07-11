@@ -1,11 +1,16 @@
-import {ChakraProvider, Heading} from '@chakra-ui/react'
+import {ChakraProvider} from '@chakra-ui/react'
+import {DataTable} from './components/dataTable'
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import theme from './theme/theme'
 
 function App() {
+    const queryClient = new QueryClient()
     return (
-        <ChakraProvider theme={theme}>
-            <Heading>Hello World</Heading>
-        </ChakraProvider>
+        <QueryClientProvider client={queryClient}>
+            <ChakraProvider theme={theme}>
+                <DataTable />
+            </ChakraProvider>
+        </QueryClientProvider>
     )
 }
 
