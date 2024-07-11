@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+const cors = require('cors')
 const fs = require('fs')
 const {execSync} = require('node:child_process')
 const {differenceInYears} = require('date-fns')
@@ -9,6 +10,12 @@ const port = 3001
 
 const jsonFilePath = path.join(__dirname, 'ProgrammingChallengeData.json')
 const modifyDataScriptPath = path.join(__dirname, 'modify-data.js')
+
+// Function to calculate age from birthday
+const calculateAge = (birthday) => {
+    const today = new Date()
+    return differenceInYears(today, birthday)
+}
 
 // Check if the JSON file exists
 if (!fs.existsSync(jsonFilePath)) {
@@ -22,13 +29,7 @@ if (!fs.existsSync(jsonFilePath)) {
     }
 }
 
-// Function to calculate age from birthday
-const calculateAge = (birthday) => {
-    const today = new Date()
-    return differenceInYears(today, birthday)
-}
-
-app.get('/data', (req, res) => {
+app.get('/data', cors(), (req, res) => {
     // Read the JSON file
     fs.readFile(jsonFilePath, 'utf8', (err, data) => {
         if (err) {
