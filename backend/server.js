@@ -30,6 +30,8 @@ if (!fs.existsSync(jsonFilePath)) {
 }
 
 app.get('/data', cors(), (req, res) => {
+    const month = req.query.month
+
     // Read the JSON file
     fs.readFile(jsonFilePath, 'utf8', (err, data) => {
         if (err) {
@@ -45,6 +47,17 @@ app.get('/data', cors(), (req, res) => {
             record.Age = calculateAge(record.Birthday)
             return record
         })
+
+        // Checks if month was sent and is not 'All Months',
+        // if so then it filters by the requested month
+        if (month && month !== 'All Months') {
+            jsonData = jsonData.filter((record) => {
+                const recordMonth = new Date(record.Birthday).toLocaleString('default', {
+                    month: 'long'
+                })
+                return recordMonth === month
+            })
+        }
 
         // Send the updated JSON data
         res.json(jsonData)
