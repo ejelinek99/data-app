@@ -17,6 +17,9 @@ const baseStyle = definePartsStyle((props) => ({
                 borderBottom: 'none'
             }
         }
+    },
+    td: {
+        textAlign: 'start'
     }
 }))
 
