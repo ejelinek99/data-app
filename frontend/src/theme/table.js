@@ -20,4 +20,4 @@ const baseStyle = definePartsStyle((props) => ({
     }
 }))
 
-export const tableTheme = defineMultiStyleConfig({baseStyle})
+export const TableTheme = defineMultiStyleConfig({baseStyle})

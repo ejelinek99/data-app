@@ -24,7 +24,11 @@ export const DataTableHeader = ({selectedMonth, onFilterChange}) => {
                         </option>
                     ))}
                 </Select>
-                <Button variant={'primary'} onClick={() => onFilterChange(headerSelectedMonth)}>
+                <Button
+                    ml={4}
+                    variant={'primary'}
+                    onClick={() => onFilterChange(headerSelectedMonth)}
+                >
                     Apply Filter
                 </Button>
                 <ColorModeSwitch />

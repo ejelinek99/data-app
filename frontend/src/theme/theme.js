@@ -1,33 +1,8 @@
-import {extendTheme, defineStyleConfig} from '@chakra-ui/react'
-import {tableTheme} from './table'
-
-const DataTableHeader = defineStyleConfig({
-    baseStyle: (props) => ({
-        width: '100%',
-        height: '100px',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        mb: 4,
-        paddingX: 4,
-        backgroundColor: props.colorMode === 'light' ? '#FFFFFF' : '#232529',
-        borderBottom: '1px solid #ccc',
-        pos: 'fixed',
-        top: 0
-    })
-})
-
-const config = {
-    initialColorMode: 'light',
-    useSystemColorMode: false
-}
-
-const styles = {
-    global: (props) => ({
-        body: {
-            bgColor: props.colorMode === 'light' ? '#F6F7F8' : '#17181A'
-        }
-    })
-}
+import {extendTheme} from '@chakra-ui/react'
+import {TableTheme} from './table'
+import {DataTableHeaderTheme} from './dataTableHeader'
+import {config, styles} from './global'
+import {SelectTheme} from './select'
 
 const theme = extendTheme({
     config,
@@ -52,20 +27,21 @@ const theme = extendTheme({
                     width: '200px',
                     height: '40px',
                     outline:
-                        props.colorMode === 'light' ? '1px solid #3282B8' : '1px solid #FFFFFF',
-                    color: props.colorMode === 'light' ? '#3282B8' : '#FFFFFF',
+                        props.colorMode === 'light' ? '1px solid #0766D1' : '1px solid #FFFFFF',
+                    color: props.colorMode === 'light' ? '#0766D1' : '#FFFFFF',
                     backgroundColor: props.colorMode === 'light' ? '#FFFFFF' : '#17181A',
                     borderRadius: '0.25rem',
                     _hover: {
                         backgroundColor: props.colorMode === 'light' && '#FFFFFF',
-                        outlineColor: props.colorMode === 'light' ? '#0F4C75' : '#3282B8',
-                        color: props.colorMode === 'light' ? '#0F4C75' : '#3282B8'
+                        outlineColor: props.colorMode === 'light' ? '#032954' : '#3282B8',
+                        color: props.colorMode === 'light' ? '#032954' : '#3282B8'
                     }
                 })
             }
         },
-        DataTableHeader,
-        Table: tableTheme
+        DataTableHeader: DataTableHeaderTheme,
+        Table: TableTheme,
+        Select: SelectTheme
     }
 })
 
