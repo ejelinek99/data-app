@@ -7,6 +7,7 @@ import {useQuery} from '@tanstack/react-query'
 
 export const DataTable = () => {
     const currentMonth = new Date().toLocaleString('default', {month: 'long'})
+
     // State to track the filtered data
     const [selectedMonth, setSelectedMonth] = useState(currentMonth)
 
@@ -27,14 +28,12 @@ export const DataTable = () => {
         refetch({queryKey: ['data', selectedMonth]})
     }
 
+    if (isLoading || isPending || isFetching || error) return <LoadingSpinner />
+
     return (
-        <Container maxW={'100%'}>
-            <DataTableHeader currentMonth={currentMonth} onFilterChange={handleFilterChange} />
-            {!isLoading || !isPending || !isFetching || !error ? (
-                <DataTableBody data={data} />
-            ) : (
-                <LoadingSpinner />
-            )}
+        <Container variant={'dataTable'}>
+            <DataTableHeader selectedMonth={selectedMonth} onFilterChange={handleFilterChange} />
+            <DataTableBody data={data} />
         </Container>
     )
 }

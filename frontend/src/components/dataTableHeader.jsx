@@ -1,12 +1,14 @@
 import {useState} from 'react'
-import {Heading, Select, Button, Flex} from '@chakra-ui/react'
+import {Heading, Select, Button, Flex, useStyleConfig} from '@chakra-ui/react'
+import {ColorModeSwitch} from './colorMode'
 import {months} from '../constants'
 
-export const DataTableHeader = ({currentMonth, onFilterChange}) => {
-    const [headerSelectedMonth, setHeaderSelectedMonth] = useState(currentMonth)
+export const DataTableHeader = ({selectedMonth, onFilterChange}) => {
+    const [headerSelectedMonth, setHeaderSelectedMonth] = useState(selectedMonth)
+    const styles = useStyleConfig('DataTableHeader')
 
     return (
-        <Flex justify="space-between" align="center" mb={4}>
+        <Flex sx={styles}>
             <Heading as="h1" size="lg">
                 Employee Information
             </Heading>
@@ -22,7 +24,10 @@ export const DataTableHeader = ({currentMonth, onFilterChange}) => {
                         </option>
                     ))}
                 </Select>
-                <Button onClick={() => onFilterChange(headerSelectedMonth)}>Apply Filter</Button>
+                <Button variant={'primary'} onClick={() => onFilterChange(headerSelectedMonth)}>
+                    Apply Filter
+                </Button>
+                <ColorModeSwitch />
             </Flex>
         </Flex>
     )
