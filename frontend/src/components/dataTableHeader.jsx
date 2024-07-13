@@ -8,7 +8,7 @@ export const DataTableHeader = ({selectedMonth, onFilterChange}) => {
     const styles = useStyleConfig('DataTableHeader')
 
     return (
-        <Flex sx={styles}>
+        <Flex sx={styles} as={'header'}>
             <Heading as="h1" size="lg">
                 Employee Information
             </Heading>

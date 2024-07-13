@@ -4,7 +4,7 @@ export const DataTableBody = ({data}) => {
     if (!data) return
 
     return (
-        <Flex justifyContent={'center'} maxWidth={'1285px'} margin={'auto'}>
+        <Flex justifyContent={'center'} maxWidth={'1285px'} marginX={'auto'} mt={29}>
             <Table variant="simple">
                 <Thead>
                     <Tr>

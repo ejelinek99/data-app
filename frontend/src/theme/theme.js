@@ -1,4 +1,5 @@
 import {extendTheme, defineStyleConfig} from '@chakra-ui/react'
+import {tableTheme} from './table'
 
 const DataTableHeader = defineStyleConfig({
     baseStyle: (props) => ({
@@ -8,15 +9,11 @@ const DataTableHeader = defineStyleConfig({
         alignItems: 'center',
         mb: 4,
         paddingX: 4,
-        borderBottom: props.colorMode === 'light' ? '1px solid black' : '1px solid #f5f5f5',
-        backgroundColor: props.colorMode === 'light' ? '#f5f5f5' : 'black'
+        backgroundColor: props.colorMode === 'light' ? '#FFFFFF' : '#232529',
+        borderBottom: '1px solid #ccc',
+        pos: 'fixed',
+        top: 0
     })
-})
-
-const Select = defineStyleConfig({
-    baseStyle: {
-        border: '1px solid black'
-    }
 })
 
 const config = {
@@ -27,7 +24,7 @@ const config = {
 const styles = {
     global: (props) => ({
         body: {
-            bgColor: props.colorMode === 'light' ? '#f5f5f5' : '#121212'
+            bgColor: props.colorMode === 'light' ? '#F6F7F8' : '#17181A'
         }
     })
 }
@@ -38,7 +35,7 @@ const theme = extendTheme({
     components: {
         Heading: {
             baseStyle: (props) => ({
-                color: props.colorMode === 'light' ? 'black' : 'white'
+                color: props.colorMode === 'light' ? '#17181A' : '#FFFFFF'
             })
         },
         Container: {
@@ -55,21 +52,20 @@ const theme = extendTheme({
                     width: '200px',
                     height: '40px',
                     outline:
-                        props.colorMode === 'light'
-                            ? '1px solid black'
-                            : '1px solid RGBA(255, 255, 255, 0.48)',
-                    color: props.colorMode === 'light' ? 'black' : 'white',
-                    backgroundColor: props.colorMode === 'light' ? '#f5f5f5' : 'black',
+                        props.colorMode === 'light' ? '1px solid #3282B8' : '1px solid #FFFFFF',
+                    color: props.colorMode === 'light' ? '#3282B8' : '#FFFFFF',
+                    backgroundColor: props.colorMode === 'light' ? '#FFFFFF' : '#17181A',
                     borderRadius: '0.25rem',
                     _hover: {
-                        backgroundColor: props.colorMode === 'light' && 'white',
-                        outlineColor: props.colorMode === 'dark' && '#f5f5f5'
+                        backgroundColor: props.colorMode === 'light' && '#FFFFFF',
+                        outlineColor: props.colorMode === 'light' ? '#0F4C75' : '#3282B8',
+                        color: props.colorMode === 'light' ? '#0F4C75' : '#3282B8'
                     }
                 })
             }
         },
         DataTableHeader,
-        Select
+        Table: tableTheme
     }
 })
 
