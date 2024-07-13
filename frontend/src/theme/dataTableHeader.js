@@ -9,7 +9,7 @@ export const DataTableHeaderTheme = defineStyleConfig({
         mb: 4,
         paddingX: 4,
         backgroundColor: props.colorMode === 'light' ? '#FFFFFF' : '#232529',
-        borderBottom: '1px solid #ccc',
+        borderBottom: '1px solid #0766D1',
         pos: 'fixed',
         top: 0
     })

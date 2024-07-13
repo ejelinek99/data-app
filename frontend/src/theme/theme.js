@@ -10,7 +10,7 @@ const theme = extendTheme({
     components: {
         Heading: {
             baseStyle: (props) => ({
-                color: props.colorMode === 'light' ? '#17181A' : '#FFFFFF'
+                color: props.colorMode === 'light' ? '#0766D1' : '#FFFFFF'
             })
         },
         Container: {
@@ -29,12 +29,12 @@ const theme = extendTheme({
                     outline:
                         props.colorMode === 'light' ? '1px solid #0766D1' : '1px solid #FFFFFF',
                     color: props.colorMode === 'light' ? '#0766D1' : '#FFFFFF',
-                    backgroundColor: props.colorMode === 'light' ? '#FFFFFF' : '#17181A',
+                    backgroundColor: props.colorMode === 'light' ? '#FFFFFF' : '#232529',
                     borderRadius: '0.25rem',
                     _hover: {
                         backgroundColor: props.colorMode === 'light' && '#FFFFFF',
-                        outlineColor: props.colorMode === 'light' ? '#032954' : '#3282B8',
-                        color: props.colorMode === 'light' ? '#032954' : '#3282B8'
+                        outlineColor: props.colorMode === 'light' ? '#032954' : '#0766D1',
+                        color: props.colorMode === 'light' ? '#032954' : '#0766D1'
                     }
                 })
             }
