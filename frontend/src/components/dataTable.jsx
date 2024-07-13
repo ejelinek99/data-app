@@ -22,18 +22,20 @@ export const DataTable = () => {
         }
     })
 
-    // Function to handle the filter change in header
+    // Function to handle the filter change in header, refetches when changed
     const handleFilterChange = (month) => {
         setSelectedMonth(month)
         refetch({queryKey: ['data', selectedMonth]})
     }
 
-    if (isLoading || isPending || isFetching || error) return <LoadingSpinner />
-
     return (
         <Container variant={'dataTable'}>
             <DataTableHeader selectedMonth={selectedMonth} onFilterChange={handleFilterChange} />
-            <DataTableBody data={data} />
+            {isLoading || isPending || isFetching || error ? (
+                <LoadingSpinner />
+            ) : (
+                <DataTableBody data={data} />
+            )}
         </Container>
     )
 }
