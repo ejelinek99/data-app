@@ -12,6 +12,9 @@ const baseStyle = definePartsStyle((props) => ({
             props.colorMode === 'light' && '0 14px 20px 0 rgba(0,0,0,.1),inset 0 0 0 1px #ccc'
     },
     tr: {
+        th: {
+            borderColor: props.colorMode === 'light' ? '#0766D1' : '#09b0ec'
+        },
         _last: {
             td: {
                 borderBottom: 'none'

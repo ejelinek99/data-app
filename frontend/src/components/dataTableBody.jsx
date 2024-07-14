@@ -8,9 +8,9 @@ import {
 import {Box, Flex, Table, Thead, Tbody, Tr, Th, Td, useColorMode} from '@chakra-ui/react'
 import {TriangleDownIcon, TriangleUpIcon} from '@chakra-ui/icons'
 
-// Assuming your data type looks like this
 const columnHelper = createColumnHelper()
 
+// Utilize column helper to define headers for the table data
 const columns = [
     columnHelper.accessor('First name', {
         cell: (info) => info.getValue(),
@@ -38,7 +38,7 @@ export const DataTableBody = ({data}) => {
     const {colorMode} = useColorMode()
 
     const activeArrowColor = colorMode === 'light' ? '#0766D1' : '#09b0ec'
-    const inactiveArrowColor = 'gray.300'
+    const inactiveArrowColor = '#CCC'
 
     const table = useReactTable({
         data,
@@ -97,7 +97,7 @@ export const DataTableBody = ({data}) => {
                     {table.getRowModel().rows.map((row) => (
                         <Tr key={row.id}>
                             {row.getVisibleCells().map((cell) => (
-                                <Td key={cell.id} isNumeric={cell.column.columnDef.meta?.isNumeric}>
+                                <Td key={cell.id}>
                                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                 </Td>
                             ))}

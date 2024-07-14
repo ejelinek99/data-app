@@ -11,7 +11,7 @@ const theme = extendTheme({
         Heading: {
             baseStyle: (props) => ({
                 color: props.colorMode === 'light' ? '#0766D1' : '#FFFFFF',
-                fontWeight: 500
+                fontWeight: 400
             })
         },
         Container: {
