@@ -13,6 +13,7 @@ const baseStyle = definePartsStyle((props) => ({
     },
     tr: {
         th: {
+            color: props.colorMode === 'light' ? '#0766D1' : '#FFFFFF',
             borderColor: props.colorMode === 'light' ? '#0766D1' : '#09b0ec'
         },
         _last: {
