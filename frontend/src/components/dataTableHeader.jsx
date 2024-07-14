@@ -16,7 +16,6 @@ export const DataTableHeader = ({selectedMonth, onFilterChange}) => {
                 <Select
                     value={headerSelectedMonth}
                     onChange={(e) => setHeaderSelectedMonth(e.target.value)}
-                    mr={2}
                 >
                     {months.map((month) => (
                         <option key={month} value={month}>
