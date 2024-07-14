@@ -15,11 +15,11 @@ describe('DataTableHeader rendering and functionality tests', () => {
         // Check for Employee Information heading
         expect(screen.getByText('Employee Information')).toBeInTheDocument()
 
-        // Check the select box to make sure it is
+        // Check the select box value to make sure it is equal to the current month
         const select = screen.getByRole('combobox')
         expect(select.value).toBe(new Date().toLocaleString('default', {month: 'long'}))
 
-        // Check to make sure the
+        // Check to make sure the the Select value is correctly on the screen
         expect(screen.getByDisplayValue(selectedMonth)).toBeInTheDocument()
 
         // Make sure the button is rendered
