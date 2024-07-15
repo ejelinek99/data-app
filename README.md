@@ -1,5 +1,7 @@
 # Data App Challenge
 
+### Run `npm install` in both frontend and backend directories
+
 ## Libraries
 
 ### Frontend
