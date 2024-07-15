@@ -4,6 +4,7 @@ import {ColorModeSwitch} from './colorMode'
 import {months} from '../constants'
 
 export const DataTableHeader = ({selectedMonth, onFilterChange}) => {
+    // State to track select box value
     const [headerSelectedMonth, setHeaderSelectedMonth] = useState(selectedMonth)
     const styles = useStyleConfig('DataTableHeader')
 
